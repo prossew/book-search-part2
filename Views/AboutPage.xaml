@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookSearchApp.Views.AboutPage"
+             BackgroundColor="#F5F5F5"
+             Title="О программе">
+    <ScrollView>
+        <VerticalStackLayout Margin="20" Spacing="15">
+            <Label Text="Поиск книг"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#212121"
+                   HorizontalOptions="Center" />
+            <Label Text="Мобильное приложение для поиска и учёта книг с локальной базой данных SQLite."
+                   FontSize="16"
+                   TextColor="#212121" />
+            <Label Text="Возможности:"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#212121" />
+            <Label Text="• Добавление книг с названием, автором, жанром и годом"
+                   FontSize="16"
+                   TextColor="#212121" />
+            <Label Text="• Поиск книг по названию, автору или жанру"
+                   FontSize="16"
+                   TextColor="#212121" />
+            <Label Text="• Удаление книг из каталога"
+                   FontSize="16"
+                   TextColor="#212121" />
+            <Label Text="• Сохранение данных в локальной базе SQLite"
+                   FontSize="16"
+                   TextColor="#212121" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

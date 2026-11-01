@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookSearchApp.Views.ItemPage"
+             BackgroundColor="#F5F5F5"
+             Title="Каталог">
+    <Grid RowDefinitions="Auto,*">
+        <SearchBar x:Name="SearchBox"
+                   Grid.Row="0"
+                   Placeholder="Поиск по названию, автору или жанру"
+                   TextChanged="OnSearchTextChanged"
+                   BackgroundColor="#FFFFFF"
+                   TextColor="#212121" />
+
+        <CollectionView x:Name="BooksCollection"
+                        Grid.Row="1"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="#FFFFFF"
+                            StrokeShape="RoundRectangle 12"
+                            Margin="10,5"
+                            Padding="15">
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" TextColor="#212121" />
+                            <Label Text="{Binding Author}" FontSize="16" TextColor="#616161" />
+                            <Label Text="{Binding Genre}" FontSize="16" TextColor="#616161" />
+                            <Label Text="{Binding Year, StringFormat='Год: {0}'}" FontSize="14" TextColor="#616161" />
+                            <Button Text="Удалить"
+                                    Clicked="OnDeleteClicked"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#2196F3"
+                                    TextColor="#FFFFFF"
+                                    HorizontalOptions="End" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label x:Name="EmptyLabel"
+               Grid.Row="1"
+               Text="Книг пока нет"
+               TextColor="#212121"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               IsVisible="False" />
+    </Grid>
+</ContentPage>

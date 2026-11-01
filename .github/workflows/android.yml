@@ -1,0 +1,60 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install MAUI Android workload
+        run: dotnet workload install maui-android
+
+      - name: Generate signing keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore booksearch.keystore \
+            -alias booksearchkey \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass bookstore123 \
+            -keypass bookstore123 \
+            -dname "CN=BookSearchApp, O=BookSearchApp, C=RU"
+
+      - name: Publish release APK
+        run: |
+          dotnet publish BookSearchApp.csproj -c Release -f net8.0-android \
+            -p:AndroidPackageFormat=apk \
+            -p:AndroidKeyStore=true \
+            -p:AndroidSigningKeyStore=$(pwd)/booksearch.keystore \
+            -p:AndroidSigningKeyAlias=booksearchkey \
+            -p:AndroidSigningKeyPass=bookstore123 \
+            -p:AndroidSigningStorePass=bookstore123 \
+            -o ./publish
+
+      - name: List publish output
+        run: ls -R ./publish
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BookSearchApp-apk
+          path: ./publish/*.apk
+          if-no-files-found: error

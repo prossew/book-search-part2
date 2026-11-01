@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookSearchApp.Views.AddItem"
+             BackgroundColor="#F5F5F5"
+             Title="Добавить книгу">
+    <VerticalStackLayout Margin="20" Spacing="15">
+        <Label Text="Название" TextColor="#212121" FontSize="16" />
+        <Entry x:Name="TitleEntry" PlaceholderText="Введите название" BackgroundColor="#FFFFFF" TextColor="#212121" />
+
+        <Label Text="Автор" TextColor="#212121" FontSize="16" />
+        <Entry x:Name="AuthorEntry" PlaceholderText="Введите автора" BackgroundColor="#FFFFFF" TextColor="#212121" />
+
+        <Label Text="Жанр" TextColor="#212121" FontSize="16" />
+        <Entry x:Name="GenreEntry" PlaceholderText="Введите жанр" BackgroundColor="#FFFFFF" TextColor="#212121" />
+
+        <Label Text="Год (необязательно)" TextColor="#212121" FontSize="16" />
+        <Entry x:Name="YearEntry" PlaceholderText="Например, 2024" Keyboard="Numeric" BackgroundColor="#FFFFFF" TextColor="#212121" />
+
+        <Button Text="Сохранить"
+                Clicked="OnSaveClicked"
+                BackgroundColor="#2196F3"
+                TextColor="#FFFFFF"
+                HeightRequest="50" />
+    </VerticalStackLayout>
+</ContentPage>
