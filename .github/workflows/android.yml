@@ -25,7 +25,10 @@ jobs:
 
       - name: Install MAUI Android workload
         run: dotnet workload install maui-android
-
+      - name: Diagnostics
+        run: |
+          dotnet --version
+          dotnet workload list
       - name: Generate signing keystore
         run: |
           keytool -genkeypair -v \

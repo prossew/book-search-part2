@@ -16,7 +16,7 @@
 
     <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
-
+    <CheckEolWorkloads>false</CheckEolWorkloads>
     <NoWarn>$(NoWarn);NETSDK1202;CS1998;CS8632</NoWarn>
 
     <AndroidLinkMode>None</AndroidLinkMode>
