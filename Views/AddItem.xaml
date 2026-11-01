@@ -4,23 +4,25 @@
              x:Class="BookSearchApp.Views.AddItem"
              BackgroundColor="#F5F5F5"
              Title="Добавить книгу">
-    <VerticalStackLayout Margin="20" Spacing="15">
-        <Label Text="Название" TextColor="#212121" FontSize="16" />
-        <Entry x:Name="TitleEntry" PlaceholderText="Введите название" BackgroundColor="#FFFFFF" TextColor="#212121" />
+    <ScrollView>
+        <VerticalStackLayout Margin="20" Spacing="15">
+            <Label Text="Название" TextColor="#212121" FontSize="16" />
+            <Entry x:Name="TitleEntry" Placeholder="Введите название" PlaceholderColor="#9E9E9E" BackgroundColor="#FFFFFF" TextColor="#212121" />
 
-        <Label Text="Автор" TextColor="#212121" FontSize="16" />
-        <Entry x:Name="AuthorEntry" PlaceholderText="Введите автора" BackgroundColor="#FFFFFF" TextColor="#212121" />
+            <Label Text="Автор" TextColor="#212121" FontSize="16" />
+            <Entry x:Name="AuthorEntry" Placeholder="Введите автора" PlaceholderColor="#9E9E9E" BackgroundColor="#FFFFFF" TextColor="#212121" />
 
-        <Label Text="Жанр" TextColor="#212121" FontSize="16" />
-        <Entry x:Name="GenreEntry" PlaceholderText="Введите жанр" BackgroundColor="#FFFFFF" TextColor="#212121" />
+            <Label Text="Жанр" TextColor="#212121" FontSize="16" />
+            <Entry x:Name="GenreEntry" Placeholder="Введите жанр" PlaceholderColor="#9E9E9E" BackgroundColor="#FFFFFF" TextColor="#212121" />
 
-        <Label Text="Год (необязательно)" TextColor="#212121" FontSize="16" />
-        <Entry x:Name="YearEntry" PlaceholderText="Например, 2024" Keyboard="Numeric" BackgroundColor="#FFFFFF" TextColor="#212121" />
+            <Label Text="Год (необязательно)" TextColor="#212121" FontSize="16" />
+            <Entry x:Name="YearEntry" Placeholder="Например, 2024" PlaceholderColor="#9E9E9E" Keyboard="Numeric" BackgroundColor="#FFFFFF" TextColor="#212121" />
 
-        <Button Text="Сохранить"
-                Clicked="OnSaveClicked"
-                BackgroundColor="#2196F3"
-                TextColor="#FFFFFF"
-                HeightRequest="50" />
-    </VerticalStackLayout>
+            <Button Text="Сохранить"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#2196F3"
+                    TextColor="#FFFFFF"
+                    HeightRequest="50" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
